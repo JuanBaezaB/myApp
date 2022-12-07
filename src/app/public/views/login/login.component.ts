@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators  } from '@angul
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  // @ts-ignore
   authForm:FormGroup
   constructor(private formBuilder: FormBuilder) { }
 
