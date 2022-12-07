@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';  
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators  } from '@angul
 export class LoginComponent implements OnInit {
   // @ts-ignore
   authForm:FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService:AuthService) { }
 
   ngOnInit() {
     this.authForm=this.formBuilder.group({
@@ -19,6 +20,14 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(form:FormGroup){
     console.log(form)
+    if(form.valid){
+      this.authService.login(form.value.else, form.value.password).subscribe(data=>{
+        console.log(data)
+      })
+    }else{
+      console.log("complete todos los datos requeridos")
+    }
+    
   }
 
 }
