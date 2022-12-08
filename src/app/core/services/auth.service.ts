@@ -16,6 +16,6 @@ export class AuthService {
   }
 
   public user():Observable<any>{
-    return this.http.post(environment.api_url+'/user',{});
+    return this.http.get(environment.api_url+'/auth/user',{});
   }
 }
