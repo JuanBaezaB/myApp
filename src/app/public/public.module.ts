@@ -12,11 +12,11 @@ import { IonicModule } from '@ionic/angular';
     LoginComponent
   ],
   imports: [
-    ReactiveFormsModule,
-    FormsModule, 
-    IonicModule,
     CommonModule,
     PublicRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    IonicModule,
   ]
 })
 export class PublicModule { }

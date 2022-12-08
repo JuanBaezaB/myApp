@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';  
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -19,15 +19,15 @@ export class LoginComponent implements OnInit {
     })
   }
   onSubmit(form:FormGroup){
-    console.log(form)
     if(form.valid){
-      this.authService.login(form.value.else, form.value.password).subscribe(data=>{
+      console.log(form)
+      this.authService.login(form.value.email, form.value.password).subscribe(data=>{
         console.log(data)
       })
     }else{
       console.log("complete todos los datos requeridos")
     }
-    
+
   }
 
 }
