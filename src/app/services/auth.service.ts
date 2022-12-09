@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
         return this.http.post(environment.api_url+'/auth/register', user);
     }
 
-    logout(user: User){
+    logout(){
         return this.http.post(environment.api_url+'/auth/logout', {});
     }
 
