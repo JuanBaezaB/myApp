@@ -4,22 +4,22 @@
     <p>Create account to explore more</p>
   </div>
 
-  <form action="">
+  <form [formGroup]="form" >
     <div>
       <ion-label>Name</ion-label>
-      <ion-input class="input" placeholder="Your name"></ion-input>
+      <ion-input class="input" formControlName="name" placeholder="Your name"></ion-input>
     </div>
 
     <div>
       <ion-label>Email</ion-label>
-      <ion-input class="input" type="email" placeholder="Your email"></ion-input>
+      <ion-input class="input" formControlName="email" type="email" placeholder="Your email"></ion-input>
     </div>
 
     <div>
       <ion-label>Password</ion-label>
-      <ion-input class="input" type="password" placeholder="Your password"></ion-input>
+      <ion-input class="input" formControlName="password" type="password" placeholder="Your password"></ion-input>
     </div>
-    <ion-button class="full" expand="block" >Register</ion-button>
+    <ion-button class="full" expand="block" [disabled]="form.invalid" (click)="onRegister()" >REGISTER</ion-button>
   </form>
-  <ion-button fill="clear" expand="block" routerLink="/login" >I have account </ion-button>
+  <ion-button expand="block" fill="clear" routerLink="/login" >I have account </ion-button>
 </ion-content>
