@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <div class="header">
+    <h1>Register</h1>
+    <p>Create account to explore more</p>
+  </div>
 
-<ion-content>
+  <form action="">
+    <div>
+      <ion-label>Name</ion-label>
+      <ion-input class="input" placeholder="Your name"></ion-input>
+    </div>
 
+    <div>
+      <ion-label>Email</ion-label>
+      <ion-input class="input" type="email" placeholder="Your email"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Password</ion-label>
+      <ion-input class="input" type="password" placeholder="Your password"></ion-input>
+    </div>
+    <ion-button class="full" expand="block" >Register</ion-button>
+  </form>
+  <ion-button fill="clear" expand="block" routerLink="/login" >I have account </ion-button>
 </ion-content>
