@@ -11,9 +11,9 @@ import { AuthService } from '../services/auth.service';
 export class HomePage {
 
   constructor(
-    private authService:AuthService,
+    private authService: AuthService,
     private alertCtrl: AlertController,
-    private router:Router
+    private router: Router,
   ) {}
   ngOnInit(): void{}
 
@@ -22,19 +22,24 @@ export class HomePage {
       header:"Logout",
       message:"Are you sure want to leave?",
       buttons:[
-        {text: "Stay"},
+        {
+          text: "Stay"
+        },
         {
           text: "Leave",
-          handler:()=>{
+          handler: () => {
             this.authService.logout().subscribe({
               next: ()=>{
                 localStorage.removeItem('token');
                 this.router.navigateByUrl('/login');
-              }
-            })
-          }
-        }
-      ]
-    })
+              },
+              error: (error) => {
+                console.log(error);
+              },
+            });
+          },
+        },
+      ],
+    }).then((alert)=> alert.present())
   }
 }
