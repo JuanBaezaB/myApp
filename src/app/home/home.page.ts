@@ -9,13 +9,22 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  user_name:string="";
 
   constructor(
     private authService: AuthService,
     private alertCtrl: AlertController,
     private router: Router,
   ) {}
-  ngOnInit(): void{}
+
+  ngOnInit(): void{
+    this.authService.user().subscribe(user => {
+      console.log(user);
+      if(user.success){
+        this.user_name = user.user.name;
+      }
+    })
+  }
 
   onLogout(){
     this.alertCtrl.create({
