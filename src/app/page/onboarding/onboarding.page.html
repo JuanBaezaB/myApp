@@ -1,32 +1,43 @@
-<ion-app>
-  <ion-content fullscreen class="ion-padding" scroll-y="false">
-    <ion-slides>
+<ion-content class="onboarding" fullscreen="true" scrollY="false">
+  <ion-slides [options]="slideOpts" pager="true" #slides>
 
-      <ion-slide>
-        <div class="slide">
-          <img src="./assets/onboarding/slide1.png" />
-          <h2>Welcome</h2>
-          <p>
-            The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
-            demonstration of proper code use.
-          </p>
+    <ion-slide *ngFor="let slide of Slides; let i = index;" class="ion-text-start" mode="md">
+      <div class="slide-inner-wrapper ion-padding-vertical">
+
+        <ion-grid class="slide-header">
+          <ion-row>
+            <ion-col size="6">
+              <ion-button *ngIf="i != 0" (click)="navigate(slides , i-1 )" size="small" color="dark" fill="clear">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-text-end">
+              <ion-button *ngIf="i < Slides.length - 1" (click)="skip(slides, Slides.length)" size="small" color="dark" fill="clear">Saltar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!-- Body -->
+        <div class="slide-body ion-text-center">
+          <img *ngIf="!slide.imgBottom" src="../assets/onboarding/{{ slide.img }}" alt="{{ slide.title }}">
+          <div class="text-wrapper ion-text-start ion-text-sm-center">
+            <h1>{{ slide.title }}</h1>
+            <ion-text>{{ slide.text }}</ion-text>
+          </div>
+          <img *ngIf="slide.imgBottom" src="../assets/onboarding/{{ slide.img }}" alt="{{ slide.title }}">
         </div>
-      </ion-slide>
 
-      <ion-slide>
-        <img src="./assets/onboarding/slide2.png" />
-        <h2>What is Ionic?</h2>
-        <p>
-          <b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps
-          with web technologies like HTML, CSS, and JavaScript.
-        </p>
-      </ion-slide>
+        <!-- Footer -->
+        <div class="slide-footer ion-text-end">
+          <ion-button *ngIf="i < Slides.length - 1" class="ion-text-uppercase ion-color-primary-gradient" (click)="navigate(slides , i+1)"
+          color="primary" mode="md" size="large" shape="round" strong="true">Siguiente</ion-button>
+          <ion-button *ngIf="i == Slides.length - 1" class="ion-text-uppercase ion-color-primary-gradient" (click)="start()"
+          color="primary" mode="md" size="large" shape="round" strong="true">Comenzar</ion-button>
+        </div>
 
-      <ion-slide>
-        <img src="./assets/onboarding/slide3.png" />
-        <h2>Ready to Play?</h2>
-        <ion-button color="primary" (click)="begin()">BEGIN!</ion-button>
-      </ion-slide>
-    </ion-slides>
-  </ion-content>
-</ion-app>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>
+
