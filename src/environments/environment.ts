@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://168.232.165.109/api'
+  api_url: 'https://api-proyect.tk/api'
 };
 
 /*
