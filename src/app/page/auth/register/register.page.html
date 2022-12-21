@@ -1,25 +1,50 @@
 <ion-content class="ion-padding">
-  <div class="header">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button size="small" color="dark" routerLink="/onboarding" routerLink="/login" fill="clear">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="ion-padding container">
     <h1>Register</h1>
     <p>Create account to explore more</p>
+    <div class="form-container">
+      <form [formGroup]="form">
+        <ion-item>
+          <ion-label position="floating">¿Cuál es tu nombre?</ion-label>
+          <ion-input formControlName="name" placeholder="Your name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">¿Cuál es tu email?</ion-label>
+          <ion-input formControlName="email" type="email" placeholder="Your email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Crea una contraseña</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Your password"></ion-input>
+        </ion-item>
+
+        <div class="C-T">
+          <p class="footer-text">Al registrarte, aceptas los <a>Términos y Condiciones</a> y la <a>Política de
+              Privacidad de BeWater.</a></p>
+
+        </div>
+
+        <ion-button expand="block" class="main-button" [disabled]="form.invalid"
+          (click)="onRegister()">Registrarte</ion-button>
+      </form>
+
+      <div class="sign-in">
+        ¿Ya tienes cuenta? <ion-button fill="clear" routerLink="/login" routerDirection="forward">Inicia
+          sesión.</ion-button>
+      </div>
+    </div>
   </div>
-
-  <form [formGroup]="form" >
-    <div>
-      <ion-label>Name</ion-label>
-      <ion-input class="input" formControlName="name" placeholder="Your name"></ion-input>
-    </div>
-
-    <div>
-      <ion-label>Email</ion-label>
-      <ion-input class="input" formControlName="email" type="email" placeholder="Your email"></ion-input>
-    </div>
-
-    <div>
-      <ion-label>Password</ion-label>
-      <ion-input class="input" formControlName="password" type="password" placeholder="Your password"></ion-input>
-    </div>
-    <ion-button class="full" expand="block" [disabled]="form.invalid" (click)="onRegister()" >REGISTER</ion-button>
-  </form>
-  <ion-button expand="block" fill="clear" routerLink="/login" >I have account </ion-button>
 </ion-content>

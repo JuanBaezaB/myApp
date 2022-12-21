@@ -12,7 +12,8 @@
               </ion-button>
             </ion-col>
             <ion-col size="6" class="ion-text-end">
-              <ion-button *ngIf="i < Slides.length - 1" (click)="skip(slides, Slides.length)" size="small" color="dark" fill="clear">Saltar</ion-button>
+              <ion-button *ngIf="i < Slides.length - 1" (click)="skip(slides, Slides.length)" size="small" color="dark"
+                fill="clear">Saltar</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -29,10 +30,12 @@
 
         <!-- Footer -->
         <div class="slide-footer ion-text-end">
-          <ion-button *ngIf="i < Slides.length - 1" class="ion-text-uppercase ion-color-primary-gradient main-button" (click)="navigate(slides , i+1)"
-          color="primary" mode="md" size="large" shape="round" strong="true">Siguiente</ion-button>
-          <ion-button *ngIf="i == Slides.length - 1" class="ion-text-uppercase ion-color-primary-gradient" (click)="start()"
-          color="primary" mode="md" size="large" shape="round" strong="true">Comenzar</ion-button>
+          <ion-button *ngIf="i < Slides.length - 1" class="ion-text-uppercase main-button"
+            (click)="navigate(slides , i+1)" mode="md" size="large" shape="round"
+            strong="true">Siguiente</ion-button>
+
+          <ion-button *ngIf="i == Slides.length - 1" class="ion-text-uppercase main-button"
+            (click)="start()" mode="md" size="large" shape="round" strong="true">Comenzar</ion-button>
         </div>
 
       </div>
@@ -40,4 +43,3 @@
 
   </ion-slides>
 </ion-content>
-

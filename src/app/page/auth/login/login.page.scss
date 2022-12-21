@@ -11,10 +11,6 @@ ion-toolbar {
     margin-top: 0;
 }
 
-.backbtn {
-    margin-left: 20px;
-}
-
 .form-container {
     margin-top: 48px;
 }
@@ -45,5 +41,7 @@ ion-toolbar {
 
 .sign-up ion-button {
     margin: 0;
+    font-weight: 600;
+    color: #3dc2ff;
 }
 
