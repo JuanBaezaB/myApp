@@ -24,7 +24,11 @@ const routes: Routes = [
   {
     path: 'onboarding',
     loadChildren: () => import('./page/onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+  },  {
+    path: 'forum',
+    loadChildren: () => import('./page/forum/forum.module').then( m => m.ForumPageModule)
   },
+
 
 
 ];

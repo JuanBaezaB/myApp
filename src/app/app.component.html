@@ -6,7 +6,7 @@
     <ion-content>
       <div class="menu-header-bg "></div>
       <div class="header-content">
-        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="">
+        <img src="./assets/1.jpg" alt="">
         <ion-label>
           <h2>Juan Baeza</h2>
           <p>jbaeza@ing.ucsc.cl</p>
@@ -14,11 +14,15 @@
       </div>
 
       <ion-list class="menu-items" lines="none">
+        <ion-item routerLink="/home">
+          <ion-icon name="home-outline"></ion-icon>Inicio
+        </ion-item>
+
         <ion-item>
           <ion-icon name="pie-chart-outline"></ion-icon>Consumo
         </ion-item>
 
-        <ion-item class="active">
+        <ion-item class="active"  routerLink="/forum">
           <ion-icon name="file-tray-full-outline"></ion-icon>Foro
         </ion-item>
       </ion-list>
