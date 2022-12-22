@@ -1,21 +1,17 @@
+.header {
+  margin-top: 15%;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  h1 {
+    font-size: 28px;
+  }
 
-ion-header {
-  position: absolute;
-
-  ion-toolbar { 
-    --background: linear-gradient(90deg, #36abe0 0%, #3dc2ff 100%);
-    padding-left: 14px;
-    padding-right: 14px;
-
-    ion-title {
-      --color: white;
-      font-size: 18px;
-      text-align: center;
-    }
-    .notification{
-      color: #ffff;
-    }
+  p {
+    margin: 0;
+    color: #444;
   }
 }
 
@@ -35,6 +31,6 @@ ion-header {
     height: 40px;
     border-radius: 0;
     width: 120px;
-    margin-top: 15px;
+    margin-top:  15px;
   }
 }
