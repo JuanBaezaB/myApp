@@ -10,6 +10,9 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  user_name: string = "";
+  user_email: string = "";
+
   constructor(
     private loadingCrl: LoadingController,
     public authService: AuthService,
@@ -18,6 +21,19 @@ export class AppComponent {
     private menu: MenuController
   ) {}
 
+
+  async ngOnInit() {
+    if(this.authService.isLoggedIn()){
+      this.authService.user().subscribe(user => {
+        console.log(user);
+        if (user.success) {
+          this.user_name = user.user.name;
+          this.user_email = user.user.email;
+        }
+      });
+    }
+
+  }
 
 
   async onLogout(){
