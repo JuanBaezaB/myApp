@@ -36,8 +36,9 @@ export class AppComponent {
 
                 loading.present();
                 localStorage.removeItem('token');
+                localStorage.removeItem('onboarding');
                 this.menu.close('main-menu');
-                window.location.reload()
+                window.location.reload();
               },
               error: (error) => {
                 console.log(error);
