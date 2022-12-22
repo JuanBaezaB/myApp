@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,12 +12,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterPage implements OnInit {
   // @ts-ignore
   form: FormGroup
+
   constructor(
     private loadingCrl: LoadingController,
     private authService: AuthService,
     private alertCtrl: AlertController,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) { }
+
+  ionViewWillEnter() {
+    this.menu.enable(false);
+  }
 
   ngOnInit() {
     this.form = new FormGroup({

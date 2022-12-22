@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-onboarding',
@@ -11,9 +11,18 @@ export class OnboardingPage implements OnInit {
   Slides: any [] = []
 
   constructor(
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) { }
-  
+
+  ionViewDidEnter(): void {
+    this.menu.enable(false);
+  }
+
+  ionViewDidLeave(): void {
+    this.menu.enable(true);
+  }
+
   slideOpts = {
     initialSlide: 0,
     speed: 400,

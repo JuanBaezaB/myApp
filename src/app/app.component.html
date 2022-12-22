@@ -1,8 +1,6 @@
 <ion-app>
   <ion-menu side="start" menuId="main-menu" content-id="main">
 
-
-
     <ion-content>
       <div class="menu-header-bg "></div>
       <div class="header-content">
@@ -14,7 +12,7 @@
       </div>
 
       <ion-list class="menu-items" lines="none">
-        <ion-item routerLink="/home">
+        <ion-item routerLink="/home" routerLinkActive="active">
           <ion-icon name="home-outline"></ion-icon>Inicio
         </ion-item>
 
@@ -22,7 +20,7 @@
           <ion-icon name="pie-chart-outline"></ion-icon>Consumo
         </ion-item>
 
-        <ion-item class="active"  routerLink="/forum">
+        <ion-item routerLink="/forum"  routerLinkActive="active">
           <ion-icon name="file-tray-full-outline"></ion-icon>Foro
         </ion-item>
       </ion-list>

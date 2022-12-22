@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { AuthService } from '../services/auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   user_name:string="";
 
   constructor(
     private authService: AuthService,
     private alertCtrl: AlertController,
     private router: Router,
+    private menu: MenuController
   ) {}
 
   ngOnInit(): void{
@@ -23,7 +24,7 @@ export class HomePage {
       if(user.success){
         this.user_name = user.user.name;
       }
-    })
+    });
   }
 
 
