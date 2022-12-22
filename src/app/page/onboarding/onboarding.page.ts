@@ -24,20 +24,22 @@ export class OnboardingPage implements OnInit {
   ngOnInit() {
     this.Slides = [
       {
-        title: 'Start to invest for your future!',
-        text: 'Ex totam praesentium incidunt aut.',
-        img: 'step-1.svg'
-      },
-      {
-        title: 'Follow our tips to achieve success!',
-        text: 'Ex totam praesentium incidunt aut.',
-        img: 'step-2.svg',
+
+        title: '',
+        text: '',
+        img: '1.png',
         imgBottom: true,
       },
       {
-        title: 'Keep your investment safe',
-        text: 'Ex totam praesentium incidunt aut.',
-        img: 'step-3.svg'
+        title: '',
+        text: '',
+        img: '2.png',
+        imgBottom: true,
+      },
+      {
+        title: '',
+        text: '',
+        img: '3.png'
       },
     ]
   }

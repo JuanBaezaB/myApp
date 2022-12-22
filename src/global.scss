@@ -25,7 +25,6 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
 .main-button {
   --background: linear-gradient(90deg, #36abe0 0%, #3dc2ff 100%);
   --box-shadow: none;
@@ -55,14 +54,15 @@ ion-buttons:focus {
   outline: none !important;
 }
 
-// Removing iOS and Android Header line for entire app
-ion-toolbar {
-  --border-width: 0 !important;
-}
-
 .header-md::after {
   background: none;
 }
+
+ion-toolbar {
+  --border-width: 0 !important;
+  --background: none;
+}
+
 
 
 .onboarding {
