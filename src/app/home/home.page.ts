@@ -26,5 +26,29 @@ export class HomePage {
     })
   }
 
-
+  onLogout(){
+    this.alertCtrl.create({
+      header:"Logout",
+      message:"Are you sure want to leave?",
+      buttons:[
+        {
+          text: "Stay"
+        },
+        {
+          text: "Leave",
+          handler: () => {
+            this.authService.logout().subscribe({
+              next: ()=>{
+                localStorage.removeItem('token');
+                this.router.navigateByUrl('/login');
+              },
+              error: (error) => {
+                console.log(error);
+              },
+            });
+          },
+        },
+      ],
+    }).then((alert)=> alert.present())
+  }
 }
