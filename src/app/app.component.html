@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" menuId="main-menu" content-id="main">
+  <ion-menu  *ngIf="authService.isLoggedIn()" menuId="main-menu" content-id="main">
 
     <ion-content>
       <div class="menu-header-bg "></div>

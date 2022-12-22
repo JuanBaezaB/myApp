@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, MenuController } from '@ionic/angular';
+import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
 
 
@@ -11,13 +11,19 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   constructor(
-    private authService: AuthService,
+    private loadingCrl: LoadingController,
+    public authService: AuthService,
     private alertCtrl: AlertController,
     private router: Router,
     private menu: MenuController
   ) {}
 
-  onLogout(){
+
+
+  async onLogout(){
+    const loading = await this.loadingCrl.create({
+      message: "Cerrando sesión...",
+    });
     this.alertCtrl.create({
       header:"Cerrar sesión",
       message:"¿Estás seguro de que quieres cerrar la sesión?",
@@ -27,10 +33,11 @@ export class AppComponent {
           handler: () => {
             this.authService.logout().subscribe({
               next: ()=>{
-                localStorage.removeItem('token');
 
+                loading.present();
+                localStorage.removeItem('token');
                 this.menu.close('main-menu');
-                this.router.navigateByUrl('/login');
+                window.location.reload()
               },
               error: (error) => {
                 console.log(error);

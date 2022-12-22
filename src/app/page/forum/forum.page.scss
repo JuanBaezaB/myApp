@@ -25,17 +25,12 @@ ion-header {
   .post-header {
     padding: 8px;
   }
-  ion-avatar{
-    img {
-      width: 60px;
-      height: 60px;
-    }
-  }
+
 
   .post-media {
     font-size: 0;
 
-    img, video {
+    img {
       width: 100%;
     }
   }

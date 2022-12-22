@@ -21,9 +21,6 @@ export class RegisterPage implements OnInit {
     private menu: MenuController
   ) { }
 
-  ionViewWillEnter() {
-    this.menu.enable(false);
-  }
 
   ngOnInit() {
     this.form = new FormGroup({

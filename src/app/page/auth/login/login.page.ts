@@ -21,15 +21,6 @@ export class LoginPage implements OnInit {
     private menu: MenuController
   ) { }
 
-  ionViewDidEnter(): void {
-    this.menu.enable(false);
-  }
-
-  ionViewDidLeave(): void {
-    this.menu.enable(true);
-  }
-
-
   ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),

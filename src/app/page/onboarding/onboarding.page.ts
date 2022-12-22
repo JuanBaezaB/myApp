@@ -15,14 +15,6 @@ export class OnboardingPage implements OnInit {
     private menu: MenuController
   ) { }
 
-  ionViewDidEnter(): void {
-    this.menu.enable(false);
-  }
-
-  ionViewDidLeave(): void {
-    this.menu.enable(true);
-  }
-
   slideOpts = {
     initialSlide: 0,
     speed: 400,
